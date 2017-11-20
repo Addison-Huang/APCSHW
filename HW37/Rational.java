@@ -49,13 +49,45 @@ public class Rational {
 	    numerator = this.numerator / x.numerator;
 	    denominator = this.denominator /x.denominator;
 	}
+	else {
+	    System.out.println("You can't divide by 0");
+	}
     }
+
+    //adds one rational # to another and does not simplify
+    public void add(Rational x) {
+	numerator = (this.numerator * x.denominator) + (this.denominator * x.numerator);
+	denominator = this.denominator * x.denominator;
+    }
+
+    //works the same as add but it subtracts instead
+    public void subtract(Rational x) {
+	numerator = (this.numerator * x.denominator) - (this.denominator * x.numerator);
+	denominator = this.denominator * x.denominator;
+    }
+
+    
+    public static int gcdEW() {
+	int a = this.denominator;
+	int b = this.numerator;
+	    while (a != b) {
+		int bigger = max(a,b);
+		int smaller = min(a,b);
+		int diff = bigger - smaller;
+		a = smaller;
+		b = diff;
+	    }
+	    return a;
+	}
+	
 
     //main method
     public static void main(String[] args) {
-	Rational r = new Rational(2,3);
-	Rational s = new Rational(1,2);
-	r.multiply(s); 
+	Rational r = new Rational(2,3); //Stores the rational number 2/3
+	Rational s = new Rational(1,2); //Stores the rational number 1/2
+	Rational t = new Rational(4,18); //Stores the rational number 4/18
+	r.add(s);  //Adds r to s, changes r to 7/6.  s remains 1/2
 	System.out.println(r);
+	//t.reduce(); //Changes t to 2/9
     }
 }
