@@ -73,17 +73,24 @@ public class Rational {
         }
         return Gcd( b, a%b);
     }
-
+    //Returns the gcd of the numerator and denominator of this Rational
     public int gcd() {
 	return Gcd(numerator,denominator);
     }
-
+    /* reduce
+       Changes this Rational to one in reduced form (should use gcd)
+    */
     public void reduce() {
 	int gcd = gcd();
 	this.numerator = this.numerator / gcd;
 	this.denominator = this.denominator / gcd;
     }
-
+    /* compareTo
+       Takes a Rational parameter and compares it to the calling object
+       Returns 0 if the two numbers are equal
+       Returns a positive integer if the calling number is larger than the parameter
+       Returns a negative integer if the calling number is smaller than the parameter
+    */
     public int compareTo(Rational x) {
 	double thisFloat = this.floatValue();
 	double xFloat = x.floatValue();
@@ -95,10 +102,7 @@ public class Rational {
 	    return - 1;
 	}
     }
-	
-	
-	
-
+       
     //main method
     public static void main(String[] args) {
 	Rational r = new Rational(2,3); //Stores the rational number 2/3
