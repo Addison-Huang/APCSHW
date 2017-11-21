@@ -1,6 +1,6 @@
 /*Addison Huang
   APCS pd1
-  HW36 -- Be Rational
+  HW37 -- Be More Rational
   2017 11 17*/
 
 public class Rational {
