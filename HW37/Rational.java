@@ -66,19 +66,37 @@ public class Rational {
 	denominator = this.denominator * x.denominator;
     }
 
-    
-    public static int gcdEW() {
-	int a = this.denominator;
-	int b = this.numerator;
-	    while (a != b) {
-		int bigger = max(a,b);
-		int smaller = min(a,b);
-		int diff = bigger - smaller;
-		a = smaller;
-		b = diff;
-	    }
-	    return a;
+    //gcd developed from the old one
+    public static int Gcd ( int a, int b){ // Does a recursive algorithm of GCD
+        if (a % b == 0) {
+	    return b;
+        }
+        return Gcd( b, a%b);
+    }
+
+    public int gcd() {
+	return Gcd(numerator,denominator);
+    }
+
+    public void reduce() {
+	int gcd = gcd();
+	this.numerator = this.numerator / gcd;
+	this.denominator = this.denominator / gcd;
+    }
+
+    public int compareTo(Rational x) {
+	double thisFloat = this.floatValue();
+	double xFloat = x.floatValue();
+	if (thisFloat == xFloat) {
+	    return 0;
+	} else if (thisFloat > xFloat) {
+	    return 1;
+	} else {
+	    return - 1;
 	}
+    }
+	
+	
 	
 
     //main method
@@ -88,6 +106,7 @@ public class Rational {
 	Rational t = new Rational(4,18); //Stores the rational number 4/18
 	r.add(s);  //Adds r to s, changes r to 7/6.  s remains 1/2
 	System.out.println(r);
-	//t.reduce(); //Changes t to 2/9
+	t.reduce(); //Changes t to 2/9
+	System.out.println(t);
     }
 }
