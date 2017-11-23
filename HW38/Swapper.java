@@ -21,7 +21,7 @@ public class Swapper {
     public static void toPopulate(String[][] x) { 
 	for (int c=0; c <x.length; c++ ) { //chooses the column
 	    for (int b=0; b < x[0].length; b++) { //chooses the row
-		x[c][b] = ""; //changes the String at column, row to empty string
+		x[c][b] = "|"; //changes the String at column, row to empty string
 		if(Math.random() < 0.5) { //randomizer for String length 3 or 4
 		    int counter = 0; 
 		    while (counter < 3) { //creates a random string of length 3
@@ -29,7 +29,7 @@ public class Swapper {
 			x[c][b] += alphabet.substring(marker,marker +1);
 			counter +=1;
 		    }
-		    x[c][b] += "  | ";
+		    x[c][b] += "  |";
 		}
 		else {
 		    int counter = 0;
@@ -38,7 +38,7 @@ public class Swapper {
 			x[c][b] += alphabet.substring(marker,marker +1);
 			counter +=1;
 		    }
-		    x[c][b] += " | ";
+		    x[c][b] += " |";
 		}
 	    }
 	}
@@ -74,9 +74,9 @@ public class Swapper {
 
 	String[][] array = new String[4][4];
 	toPopulate(array);
-	System.out.println("------------------------------");
+	System.out.println("--------------------------------");
 	print2(array);
-	System.out.println("------------------------------");
+	System.out.println("--------------------------------");
 	System.out.println("");
 	System.out.println("****NOTE****");
 	System.out.println("THE FIRST ROW IS ROW 0, SECOND IS ROW 1, AND SO ON");
