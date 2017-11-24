@@ -55,6 +55,7 @@ public class Swapper {
     
     //prints out the array 
     public static void print2(String[][] a ) {
+	
 	for(String[] x: a) {
 	    System.out.println(Stringify(x));
 	}
