@@ -55,9 +55,11 @@ public class Swapper {
     
     //prints out the array 
     public static void print2(String[][] a ) {
-	
+	int counter = 0;
 	for(String[] x: a) {
+	    System.out.print(counter);
 	    System.out.println(Stringify(x));
+	    counter += 1;
 	}
     }
 
@@ -75,9 +77,9 @@ public class Swapper {
 
 	String[][] array = new String[4][4];
 	toPopulate(array);
-	System.out.println("--------------------------------");
+	System.out.println(" ---0-------1-------2-------3---");
 	print2(array);
-	System.out.println("--------------------------------");
+	System.out.println(" -------------------------------");
 	System.out.println("");
 	System.out.println("****NOTE****");
 	System.out.println("THE FIRST ROW IS ROW 0, SECOND IS ROW 1, AND SO ON");
@@ -94,9 +96,9 @@ public class Swapper {
 	int Column2 = Keyboard.readInt();
 	swap(Column1, Row1, Column2, Row2, array);
 	System.out.println("");
-	System.out.println("-------------");
+	System.out.println(" ---0-------1-------2-------3---");
 	print2(array);
-	System.out.println("-------------");
+	System.out.println(" -------------------------------");
 	
     }
 }
