@@ -11,6 +11,11 @@ HW 38 -- Put it Together
   The terms are switched
   The array is printed again
  */
+
+/*I changed the appearance of the array when it was printed, clarifying which row was which and which column was which.
+
+I fixed bugs including not being able to have z in the strings and it printing first row when it should say second 
+*/
 import cs1.Keyboard;
 
 public class Swapper {
