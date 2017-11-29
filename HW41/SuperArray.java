@@ -4,6 +4,7 @@ Intro cspd01
 HW #42-Array of Grade 316
 2017 - 11 - 29
 */
+
 public class SuperArray
 {
 
@@ -11,7 +12,7 @@ public class SuperArray
   private int _size;    //number of elements in this SuperArray
 
 
-  //default constructor – initializes 10-item array
+  //default constructor - initializes 10-item array
   public SuperArray()
   {
     _data = new int[10];
@@ -64,10 +65,10 @@ public class SuperArray
   //adds an item after the last item
   public void add( int newVal )
   {
-      if (_size == _data.length) {
+      if (_size == _data.length) { //expands if no more meaningless elements
 	  expand();
       }
-       _data[_size] = newVal;
+       set(_size, newVal); //changes next meaningless into newVal
        _size += 1;
   }
 
@@ -75,16 +76,12 @@ public class SuperArray
   //inserts an item at index
   public void add( int index, int newVal )
   {
-      while (index >= _data.length) {
-	  expand();
-      }
-      if (index >= _size) {
-	  _size = index + 1;
-	  _data[index] = newVal;
+      if (index >= _size) { //if index is greater than size,
+	  add(newVal); //add on to the end of the super array
       } else {
-	  add(index+1, _data[index]);    
+	  add(index+1, _data[index]); //recursive call to the element right of index
+	  set(index, newVal); //changes value at index to newVal
 	  }
-      set(index, newVal);
       
   }
 
@@ -93,12 +90,11 @@ public class SuperArray
   //shifts elements left to fill in newly-empted slot
   public void remove( int index )
   {
-      for(int i =  index; i < _size; i++) {
+      for(int i = index; i < _size; i++) { //shifts elements right of index to the left
 	  _data[i] = _data[i+1];
       }
       _size -= 1;
-      _data[_size] = 0;
-      
+      set(_size, 0); //sets next meaningless element to 0;
   }
 
 
@@ -153,7 +149,7 @@ public class SuperArray
     System.out.println("Printing SuperArray mayfield post-remove...");
     System.out.println(mayfield);
 
-    mayfield.add(3,99);
+    mayfield.add(7,99);
     System.out.println("Printing SuperArray mayfield post-insert...");
     System.out.println(mayfield);
     mayfield.add(2,88);
