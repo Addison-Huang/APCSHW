@@ -149,13 +149,15 @@ public class Rational
    *   Object), or if this and other have matching attribute values.
    *   (which in this case indicates equivalent fractions)
    *********************/
+    
   public boolean equals( Object other )
   {
     //First, reduce both fractions.
     //...thus allowing for direct comparison of attributes
     reduce();
+    return compareTo(other) == 0;
 
-    /* YOUR IMPLEMENTATION HERE */
+    
 
   }//end equals()
 
@@ -168,20 +170,27 @@ public class Rational
    *    Return negative integer if this < other.
    *    Return positive integer if this > other.
    *********************/
-  public int compareTo( Object other )
+   
+    public int compareTo( Object other )
   {
     // If other is not a Rational, throw an exception
     // This will exit the function, generating a runtime error
-      return this.numerator * object.denominator - this.denominator * object.nunmerator;
+      if (other instanceof Rational) {
+	  return this._numerator * other._denominator - this._denominator * other._numerator;}
+      else {
+	  throw new Exception("\nIt broke.");
+      }
+	  
     
 
   }
+    
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    
+      /*
       Rational r = new Rational( 3, 7 );
       Rational s = new Rational();
       Rational t = new Rational( 8, 5 );
@@ -269,7 +278,7 @@ public class Rational
       System.out.println( "v.equals(v): " + v.equals(v) );
       System.out.println( "v.equals(w): " + v.equals(w) );
       System.out.println( "w.equals(x): " + w.equals(x) );
-
+      */
   }
 
 }//end class
