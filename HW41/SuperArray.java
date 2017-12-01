@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 /***************************
  * class SuperArray
  * Wrapper class for array. Facilitates resizing,
  * getting and setting element values.
  ***************************/
+=======
+/*Team Flying Helicopters -- Kenny Li, Addison Huang
+Addison Huang
+Intro cspd01
+HW #42-Array of Grade 316
+2017 - 11 - 29
+*/
+>>>>>>> 75ecb702149229aacac7ea102262af194ff3273c
 
 public class SuperArray
 {
@@ -11,7 +20,11 @@ public class SuperArray
   private int _size;    //number of elements in this SuperArray
 
 
+<<<<<<< HEAD
   //default constructor – initializes 10-item array
+=======
+  //default constructor - initializes 10-item array
+>>>>>>> 75ecb702149229aacac7ea102262af194ff3273c
   public SuperArray()
   {
     _data = new int[10];
@@ -61,9 +74,60 @@ public class SuperArray
   }
 
 
+<<<<<<< HEAD
   //main method for testing
   public static void main( String[] args )
   {
+=======
+  //adds an item after the last item
+  public void add( int newVal )
+  {
+      if (_size == _data.length) { //expands if no more meaningless elements
+	  expand();
+      }
+       set(_size, newVal); //changes next meaningless into newVal
+       _size += 1;
+  }
+
+
+  //inserts an item at index
+  public void add( int index, int newVal )
+  {
+      if (index >= _size) { //if index is greater than size,
+	  add(newVal); //add on to the end of the super array
+      } else {
+	  add(index+1, _data[index]); //recursive call to the element right of index
+	  set(index, newVal); //changes value at index to newVal
+	  }
+      
+  }
+
+
+  //removes the item at index
+  //shifts elements left to fill in newly-empted slot
+  public void remove( int index )
+  {
+      for(int i = index; i < _size; i++) { //shifts elements right of index to the left
+	  _data[i] = _data[i+1];
+      }
+      _size -= 1;
+      set(_size, 0); //sets next meaningless element to 0;
+  }
+
+
+  //return number of meaningful items in _data
+  public int size()
+  {
+      return _size;
+  }
+
+
+
+  //main method for testing
+  public static void main( String[] args )
+  {
+    
+>>>>>>> 75ecb702149229aacac7ea102262af194ff3273c
     SuperArray curtis = new SuperArray();
     System.out.println( "Printing empty SuperArray curtis..." );
     System.out.println( curtis );
@@ -79,9 +143,45 @@ public class SuperArray
       curtis.expand();
       System.out.println("Printing expanded SuperArray curtis...");
       System.out.println(curtis);
+<<<<<<< HEAD
     }
     /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
+=======
+      System.out.println("new length of underlying array: "
+                         + curtis._data.length );
+    }
+
+    SuperArray mayfield = new SuperArray();
+    System.out.println("Printing empty SuperArray mayfield...");
+    System.out.println(mayfield);
+
+    mayfield.add(5);
+    mayfield.add(4);
+    mayfield.add(3);
+    mayfield.add(2);
+    mayfield.add(1);
+
+    System.out.println("Printing populated SuperArray mayfield...");
+    System.out.println(mayfield);
+
+    mayfield.remove(3);
+    System.out.println("Printing SuperArray mayfield post-remove...");
+    System.out.println(mayfield);
+    mayfield.remove(3);
+    System.out.println("Printing SuperArray mayfield post-remove...");
+    System.out.println(mayfield);
+
+    mayfield.add(7,99);
+    System.out.println("Printing SuperArray mayfield post-insert...");
+    System.out.println(mayfield);
+    mayfield.add(2,88);
+    System.out.println("Printing SuperArray mayfield post-insert...");
+    System.out.println(mayfield);
+    mayfield.add(1,77);
+    System.out.println("Printing SuperArray mayfield post-insert...");
+    System.out.println(mayfield);
+>>>>>>> 75ecb702149229aacac7ea102262af194ff3273c
   }//end main()
 
 
