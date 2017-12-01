@@ -11,10 +11,12 @@
  * comparison
  ******************************/
 
-// Clyde "Thluffy" Sinclair
-// APCS1 p0
-// HW44 -- implementing an interface, boolean short-circuiting
-// 2017-12-01f
+/*Team Taco Sellers -- Addison Huang and Clarence Cheng
+Addison Huang
+APCS pd1
+HW 44 -- Rational Equality
+2017 12 01
+*/
 
 public class Rational
 {
@@ -155,7 +157,7 @@ public class Rational
     //First, reduce both fractions.
     //...thus allowing for direct comparison of attributes
     reduce();
-    return compareTo(other) == 0;
+    return (compareTo(other) == 0);
 
     
 
@@ -176,9 +178,10 @@ public class Rational
     // If other is not a Rational, throw an exception
     // This will exit the function, generating a runtime error
       if (other instanceof Rational) {
-	  return this._numerator * other._denominator - this._denominator * other._numerator;}
-      else {
-	  throw new Exception("\nIt broke.");
+	  return this._numerator * ((Rational)other)._denominator - this._denominator * ((Rational)other)._numerator;
+	  
+      } else {
+	  throw new ClassCastException("\nIt broke.");
       }
 	  
     
@@ -190,7 +193,7 @@ public class Rational
   //main method for testing
   public static void main( String[] args )
   {
-      /*
+      
       Rational r = new Rational( 3, 7 );
       Rational s = new Rational();
       Rational t = new Rational( 8, 5 );
@@ -273,12 +276,13 @@ public class Rational
       System.out.println( "r > s: " +  r.compareTo(s) );
       System.out.println( "s > t: " +  s.compareTo(t) );
       //uncommenting the line below should trigger a runtime error
-      //  System.out.println( "s > y: " +  s.compareTo(y) );
+      //   System.out.println( "s > y: " +  s.compareTo(y) );
 
       System.out.println( "v.equals(v): " + v.equals(v) );
       System.out.println( "v.equals(w): " + v.equals(w) );
       System.out.println( "w.equals(x): " + w.equals(x) );
-      */
+      
+      
   }
 
 }//end class
