@@ -1,14 +1,13 @@
-
-public class SuperArray implements List
+public class SuperArray extends java.lang.Object implements List
 {
-    private int[] _data;  //underlying container
+    private Object[] _data;  //underlying container
     private int _size;    //number of elements in this SuperArray
 
 
     //default constructor – initializes 10-item array
     public SuperArray()
     {
-	_data = new int[10];
+	_data = new Object[10];
 	_size = 0;
     }
 
@@ -31,7 +30,7 @@ public class SuperArray implements List
     //double capacity of SuperArray
     private void expand()
     {
-	int[] temp = new int[ _data.length * 2 ];
+	Object[] temp = new Object[ _data.length * 2 ];
 	for( int i = 0; i < _data.length; i++ )
 	    temp[i] = _data[i];
 	_data = temp;
@@ -42,7 +41,7 @@ public class SuperArray implements List
     public Object get( int index )
     {
 	if (index < 0 || index >= size()) { 
-	    throw new IndexOutofBoundsException("Your index was out of bounds");
+	    throw new java.lang.IndexOutOfBoundsException("Your index was out of bounds");
 	}
 	return _data[index];
     }
@@ -53,9 +52,9 @@ public class SuperArray implements List
     public Object set( int index, Object o )
     {
 	if (index < 0 || index >= size()) { 
-	    throw new IndexOutofBoundsException("Your index was out of bounds");
+	    throw new java.lang.ArrayIndexOutOfBoundsException("Your index was out of bounds");
 	}
-	int temp = _data[index];
+	Object temp = _data[index];
 	_data[index] = o;    
 	return temp;
     }
@@ -75,26 +74,30 @@ public class SuperArray implements List
 	//first expand if necessary
 	if ( _size >= _data.length )
 	    expand();
-	if (index < 0 || index >= size()) {
-	    throw new IndexOutofBoundsException("Your index was out of bounds");
-	}
+	
+        _size++;
+	
 	for( int i = _size; i > index; i-- ) {
 	    _data[i] = _data[i-1]; //each slot gets value of left neighbor
 	}
 	_data[index] = o;
-	_size++;
+	
+        if (index < 0 || index >= size()) {
+	    throw new java.lang.IndexOutOfBoundsException("Your index was out of bounds");
+	}
+    
     }
 
 
     //removes the item at index
     //shifts elements left to fill in newly-empted slot
     //returns removed value
-    public object remove( int index )
+    public Object remove( int index )
     {
 	if (index < 0 || index >= size()) {
-	    throw new IndexOutofBoundsException("Your index was out of bounds");
+	    throw new java.lang.IndexOutOfBoundsException("Your index was out of bounds");
 	}
-	object retObj = _data[index];
+	Object retObj = _data[index];
 	for( int i = index; i < _size - 1; i++ ) {
 	    _data[i] = _data[i+1];
 	}
@@ -114,70 +117,40 @@ public class SuperArray implements List
     //main method for testing
     public static void main( String[] args )
     {
-	ListInt mayfield = new SuperArray();
+	List  mayfield = new SuperArray();
 	System.out.println("Printing empty SuperArray mayfield...");
 	System.out.println(mayfield);
-
-	mayfield.add(5);
-	mayfield.add(4);
-	mayfield.add(3);
-	mayfield.add(2);
-	mayfield.add(1);
-
+	
+	mayfield.add("hi");
+	mayfield.add("bye");
+	mayfield.add("sigh");
+	mayfield.add("cry");
+	mayfield.add("why");
+	
 	System.out.println("Printing populated SuperArray mayfield...");
 	System.out.println(mayfield);
-
+	
 	mayfield.remove(3);
 	System.out.println("Printing SuperArray mayfield post-remove...");
 	System.out.println(mayfield);
 	mayfield.remove(3);
 	System.out.println("Printing SuperArray mayfield post-remove...");
 	System.out.println(mayfield);
+	
+	mayfield.add(3,"weee");
+	System.out.println("Printing SuperArray mayfield post-insert...");
+	System.out.println(mayfield);
+	mayfield.add(2,"pew");
+	System.out.println("Printing SuperArray mayfield post-insert...");
+	System.out.println(mayfield);
+	mayfield.add(1,"yay");
+	System.out.println("Printing SuperArray mayfield post-insert...");
+	System.out.println(mayfield);
+	
 
-	mayfield.add(3,99);
-	System.out.println("Printing SuperArray mayfield post-insert...");
-	System.out.println(mayfield);
-	mayfield.add(2,88);
-	System.out.println("Printing SuperArray mayfield post-insert...");
-	System.out.println(mayfield);
-	mayfield.add(1,77);
-	System.out.println("Printing SuperArray mayfield post-insert...");
-	System.out.println(mayfield);
-	/*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
-	  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
     }//end main()
 
 
 }//end class
 
 
-/***
-    ,,########################################,,
-    .*##############################################*
-    ,*####*:::*########***::::::::**######:::*###########,
-    .*####:    *#####*.                 :*###,.#######*,####*.
-    *####:    *#####*                      .###########*  ,####*
-    .*####:    ,#######,                        ##########*    :####*
-    *####.    :#########*,                       ,,,,,,,,.      ,####:
-    ####*  ,##############****************:,,               .####*
-    :####*#####################################**,        *####.
-    *############################################*,   :####:
-    .#############################################*,####*
-    :#####:*****#####################################.
-    *####:                  .,,,:*****###########,
-    .*####,                            *######*
-    .####* :*#######*               ,#####*
-    *###############*,,,,,,,,::**######,
-    *##############################:
-    *####*****##########**#####*
-    .####*.            :####*
-    :####*         .#####,
-    *####:      *####:
-    .*####,  *####*
-    :####*####*
-    *######
-    *##
-
-    -Miranda Chaiken '16
-
-***/
