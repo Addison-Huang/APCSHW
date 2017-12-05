@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+
+public class ALTester {
+
+    public static void main(String[] args) {
+	ArrayList joe = new ArrayList();
+	int populator = 0;
+	while (populator < 22) {
+	    joe.add(populator);
+	}
+	-Xlint:unchecked
+    }
+}
