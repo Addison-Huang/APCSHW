@@ -1,3 +1,8 @@
+/*Addison Huang
+IntroCsPd1
+HW45- In America, the Driver sits on the left
+2017 12 03
+*/
 public class SuperArray extends java.lang.Object implements List
 {
     private Object[] _data;  //underlying container
