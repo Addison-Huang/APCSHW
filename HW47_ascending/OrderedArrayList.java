@@ -1,82 +1,83 @@
 /*Addison Huang
-APCS pd01
-HW 47 -- ascending
-2017 12 06 
-*/
-
-/*I wasn't sure if this was the assignment but I tried to do it to the best of my ability */
+APCS PD 1
+HW47 -- Ascending
+2017 12 06*/
+import java.util.ArrayList;
 
 public class OrderedArrayList
 {
-    private  Object[] _data; //instance vars
-    private  int _size;
+  // instance of class ArrayList, holding objects of type Comparable 
+  // (ie, instances of a class that implements interface Comparable)
+  private ArrayList<Comparable> _data;
 
-    //helper function for add 
-    public void helpAdd(Object x, int index) {
-	if ( _size >= _data.length )
-	    expand();
 
-	for( int i = _size; i > index; i-- ) {
-	    _data[i] = _data[i-1]; //each slot gets value of left neighbor
-	}
+  // default constructor initializes instance variable _data
+  public OrderedArrayList()
+  {
+      _data = new ArrayList<Comparable>();
+  }
 
-	_data[index] = x;
-	_size++;
+
+  public String toString()
+  {
+    
+      return _data.toString(); //placeholder
+  }
+
+
+  public Comparable remove( int index )
+  {
+     return _data.remove(index);
+  }
+
+
+  public int size()
+  { 
+      return _data.size(); //placeholder 
+  }
+
+    
+  public Comparable get( int index )
+  { 
+      return _data.get(index); //placeholder  
+  }
+
+
+  public void add(Comparable newVal)
+  {
+      int counter = 0;
+      while (counter < size()) {
+	  if (get(counter).compareTo(newVal) > 0) {
+	      _data.add(counter, newVal);
+	     
+	  }
+	  counter += 1;
+      }
+      _data.add(newVal);
+	  
+      
+  }
+
+
+
+  // main method solely for testing purposes
+  public static void main( String[] args )
+  {
+ 
+    OrderedArrayList Franz = new OrderedArrayList();
+    // testing linear search
+    for( int i = 0; i < 15; i++ )
+      Franz.add( (int)( 50 * Math.random() ) );
+    System.out.println( Franz );
+    //check for sorted-ness
+    //if msg does not appear, list was sorted
+    for( int i=0; i<Franz.size()-1; i++ ) {
+      System.out.println("at i: " + Franz.get(i) );
+      if ( Franz.get(i).compareTo(Franz.get(i+1)) > 0 ) {
+        System.out.println( " *** NOT sorted *** " );
+        break;
+      }
     }
+  }//end main()
 
-    //adds the values sorted from least value to greatest value
-    public void add(Object x, int index) {
-	int counter = 0;
-	while (counter < _size) {
-	    if (get(counter) == x) {
-		helpAdd( x, index);
-	    }
-	    counter +=1;
-	}
-	add(x);
-	
-    }
-    //adds at the last index
-    public boolean add( Object newVal )
-    {
-	//first expand if necessary
-	if ( _size >= _data.length )
-	    expand();
-
-	_data[_size] = newVal;
-	_size++;
-
-	return true;
-    }
-
-    //returns Object at specific index
-    public Object get( int index )
-    {
-	return _data[index];
-    }
-
-    //doubles storage
-    private void expand()
-    {
-	Object[] temp = new Object[ _data.length * 2 ];
-
-	for( int i = 0; i < _data.length; i++ )
-	    temp[i] = _data[i];
-
-	_data = temp;
-    }
-
-    //sorts the arraylist
-    public void sort() {
-	Object [] temp = new Object[_data.length];
-	for( int i = 0; i < _data.length; i++ )
-	    temp[i] = _data[i];
-	_data = new Object[temp.length];
-	for (Object x: temp) {
-	    add(x,0);
-	}
-    }
-					 			    
-    public static void main( String[] args ) {	
-    }
-}
+}//end class OrderedArrayList
