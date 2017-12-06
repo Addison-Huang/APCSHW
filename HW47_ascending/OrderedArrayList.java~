@@ -1,0 +1,48 @@
+import java.util.ArrayList;
+public class OrderedArrayList
+{
+    public static void addInd(int x, ArrayList y) {
+	int counter = 0;
+	while (counter < y._size) {
+	    if (y.get(counter) == x) {
+		y.add(x, counter);
+	    }
+	    counter +=1;
+	}
+	y.add(x);
+    }
+
+    //public static void sort(ArrayList y) {
+       
+	
+
+		
+	    
+
+    public static void main( String[] args )
+    {
+	ArrayList<Comparable> hello  = new ArrayList<Comparable>();
+
+	System.out.println( hello );
+
+	//populate
+	for( int i=0; i<23; i++ ){
+	    hello.add(i*2);
+	}
+
+	System.out.println( hello );
+
+	hello.set( 5, 100 );
+
+	//check for sortedness
+	for( int i=0; i<hello.size()-1; i++ ) {
+	    System.out.println( "at i: " + hello.get(i) );
+	    if ( hello.get(i).compareTo(hello.get(i+1)) > 0 ) {
+		System.out.println( " *** NOT sorted *** " );
+		break;
+	    }
+	    System.out.println( "AYO! That one was sorted." );
+	}
+	
+    }
+}
