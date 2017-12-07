@@ -8,6 +8,11 @@
   Guess a # fr 26-49: 38
   Correct! It took 3 guesses
   ==================================================*/
+/*Addison Huang
+  APCS1 pd1
+  HW48 keep Guessing
+  2017 12 06
+*/
 
 import cs1.Keyboard;
 
@@ -47,15 +52,19 @@ public class GuessNumber
 	    System.out.println("WOOO YOU GUESSED THE CORRECT NUMBER");
 	    System.out.println("It took " + _guessCtr + " tries");
 	}
-	else if (guess1 > _target) {
+	else if  ((guess1 > _target) && (guess1 <= _hi)) {
 	    System.out.println("Your guess was too high");
 	    _hi = guess1 - 1;
 	    playRec();
-	} else {
+	} else if ((guess1 < _target) && (guess1 >= _lo))  {
 	    System.out.println("Your guess was too low");
 	    _lo = guess1 + 1;
 	    playRec();
-	}	
+	}
+	else {
+	    System.out.println("Your guess was out of the range! Guess again!");
+	    playRec();
+	}
     }
 
 
@@ -71,13 +80,17 @@ public class GuessNumber
 	int guess1 = Keyboard.readInt();
 	while (guess1 != _target) {
 	    _guessCtr += 1;
-	    if (guess1 > _target) {
+	    if ((guess1 > _target) && (guess1 <= _hi))  {
 		System.out.println("Your guess was too high");
 		_hi = guess1 - 1;
-	    } else {
+	    } else if ((guess1 < _target) && (guess1 >= _lo)) {
 		System.out.println("Your guess was too low");
 		_lo = guess1 + 1;
 	    }
+	    else {
+		System.out.println("Your guess was out of the range! Guess again!");
+	    }
+	    
 	    System.out.print("Guess a number from " + _lo + " to " + _hi + ": ");
 	    guess1 = Keyboard.readInt();
 	}
