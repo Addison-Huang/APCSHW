@@ -33,7 +33,7 @@ public class GuessNumber
 	_lo = a;
 	_hi = b;
 	_guessCtr = 0;
-	_target = (int)(Math.random()*(_hi - _lo)) + _lo;
+	_target = (int)(Math.random()*(_hi - _lo +1)) + _lo;
     }
 
 
