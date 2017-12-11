@@ -48,8 +48,7 @@ public class SelectionSort
   public static ArrayList<Comparable>
     selectionSort( ArrayList<Comparable> input ) 
   {
-      Comparable smallest;
-      
+    /* YOUR IMPLEMENTATION HERE */
   }//end selectionSort 
 
 
