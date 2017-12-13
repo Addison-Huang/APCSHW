@@ -38,7 +38,7 @@ public class InsertionSort
     // postcondition: data's elements sorted in ascending order
     public static void insertionSortV( ArrayList<Comparable> data )
     {
-	
+	/* YOUR IMPLEMENTATION HERE */
     }//end insertionSortV
 
 
