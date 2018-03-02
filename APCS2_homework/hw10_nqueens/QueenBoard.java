@@ -153,7 +153,7 @@ public class QueenBoard
     //main method for testing...
     public static void main( String[] args )
     {
-	for (int i = 4; i < 9; i++)
+	for (int i = 3; i < 9; i++)
 	    {
 		QueenBoard b = new QueenBoard(i);
 		System.out.println("Solving " + i + "x" + i + ":\n");
