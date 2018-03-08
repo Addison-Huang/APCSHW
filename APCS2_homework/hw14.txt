@@ -1,0 +1,14 @@
+Team KeyboardWarriors -- Addison Huang, Jude Grodevsky, Xinyi Huang
+APCS2 p02
+Hw 14 -- KnightsTour and Maze
+2018 03 06
+
+Q1) There is an open tour for every starting position on an 8 x 8 because we ran the code with a starting position at every spot on the top left 4 x 4 and found a solution for each. The other solutions for the other starting spots will be simply rotations
+
+Q2) There is an closed tour for every starting position on an 8 x8.
+
+Q3) The runtime increases drastically because when the boardsize gets bigger there are more paths the knight can take and therefore there are more chances of backtracking.
+
+Q4) A thought on optimizatin is that the board may be divided into 4 boxes and starting positions for each will be chosen that they are a knights move away from each other. Then the 4 boards will each perform their own knights tour and finally be combined together as an 8 x 8 board.
+
+
