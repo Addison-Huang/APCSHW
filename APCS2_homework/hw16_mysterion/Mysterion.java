@@ -10,7 +10,7 @@ public class Mysterion {
 	int v = arr[pivot];
 	swap(pivot ,hi ,arr);
 	int s = lo;
-	for (int i=s;i <= hi-1; i++) {
+	for (int i=s;i < hi-1; i++) {
 	    if (arr[i] < v) {
 		swap(s, i,arr);
 		s += 1;
