@@ -1,0 +1,56 @@
+/*Addison Huang
+  APCS2 pd2
+  HW17 -- So So Fast
+  2018 03 12
+*/
+
+
+public class FastSelect {
+    //helper methods
+    //elements to the left of the pivot are less than or equal to the pivot
+    //elements to the right are greater than the pivot
+    public static int partition( int[] arr, int low, int high, int pivot) {
+	int v = arr[pivot];
+	swap( pivot, high, arr);
+	int s = low;
+	for( int i = low; i < high; i++ ) {
+	    if ( arr[i] <= v) {
+		swap( i, s, arr );
+		s++;
+	    }
+	}
+	swap(s,high,arr);
+
+	return s;
+    }
+
+    //swaps x with y
+    public static void swap( int x, int y, int[] o ) {
+	int tmp = o[x];
+	o[x] = o[y];
+	o[y] = tmp;
+    }
+
+    //prints out the array
+    public static void printArr( int[] a ) {
+    for ( int o : a )
+	    System.out.print( o + " " );
+    System.out.println();
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static int FastSelect(int[] arr, int y) {
+	return arr[partition(arr, 0, arr.length-1, y-1)];
+    }
+
+    
+    public static void main(String[] args) {
+	int[] arr1 = new int[] {7,1,5,12,3};
+	System.out.print("array1: ");
+	printArr(arr1);
+	for (int i = 0; i < arr1.length; i++) {
+	    System.out.print(i+"th element: ");
+	    System.out.println(FastSelect(arr1, i));
+	    System.out.println();
+	}
+    }
+}
