@@ -72,6 +72,7 @@ public class LLNode {
 	LLNode first = new LLNode( "run", null ); //makes a node
 	first.setNext( new LLNode( "jump", null ) ); //makes a 2nd node
 	first.getNext().setNext( new LLNode( "hop", null ) ); //makes a 3rd node
+	//I noticed that LLNodes are created from left to right
 	
     }//end main
 
