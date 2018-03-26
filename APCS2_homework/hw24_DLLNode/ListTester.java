@@ -37,6 +37,7 @@ public class ListTester
     wu.add("Method Man");
 
     System.out.println(wu);
+    System.out.println(wu.size());
 
     for( int i=0; i<7; i++ ) {
 	    int n = (int)( wu.size() * Math.random() );

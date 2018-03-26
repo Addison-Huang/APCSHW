@@ -11,7 +11,7 @@ public class DLLNode
     private DLLNode _nextNode, _prevNode; //pointers to next, prev DLLNodes
 
     //constructor --intializes instance vars
-    public DLLNode (String value, DLLNode next, DLLNode prev) {
+    public DLLNode (String value, DLLNode prev, DLLNode next) {
 	_cargo= value;
 	_nextNode = next;
 	_prevNode = prev;
