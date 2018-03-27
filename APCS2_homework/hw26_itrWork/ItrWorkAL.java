@@ -6,6 +6,11 @@
 import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
+/*Addison Huang
+APCS2 pd2
+HW 26- DeIteratour
+2018 03 27
+*/
 
 public class ItrWorkAL 
 {
@@ -25,8 +30,9 @@ public class ItrWorkAL
     //returns a boolean to indicate whether key is present in L
     public static boolean foundB( Integer key, List<Integer> L ) 
     {
-	while (L.hasNext()) {
-	    if (L.next() == key) {
+	Iterator it = L.iterator();
+	while (it.hasNext()) {
+	    if (it.next() == key) {
 		return true;
 	    }
 	}
@@ -38,6 +44,7 @@ public class ItrWorkAL
     public static List<Integer> oddsA( List<Integer> L ) 
     {
 	List<Integer> ret= new ArrayList<Integer>();
+	Iterator it = L.iterator();
 	for (Integer odd: L) {
 	    if (odd %2 == 1) {
 		ret.add(odd);
@@ -51,10 +58,13 @@ public class ItrWorkAL
     public static List<Integer> oddsB( List<Integer> L ) 
     {
 	List<Integer> ret = new ArrayList<Integer>();
-	while (L.hasNext()) {
-	    if (L.next() %2 == 1)
-		ret.add(L.next());
+	Iterator<Integer> it = L.iterator();
+	while (it.hasNext()) {
+	    Integer temp = it.next();
+	    if (temp %2 == 1)
+		ret.add(temp);
 	}
+	return ret;
     }
 
 
@@ -62,7 +72,12 @@ public class ItrWorkAL
     //modifies L s.t. it contains no evens
     public static void removeEvens( List<Integer> L ) 
     {
-	/*** YOUR IMPLEMENTATION HERE ***/
+	Iterator<Integer> it = L.iterator();
+	while (it.hasNext()) {
+	    Integer temp = it.next();
+	    if (temp %2 ==0)
+		it.remove();
+	}
     }
 
 
@@ -87,15 +102,14 @@ public class ItrWorkAL
 	System.out.println("\nTesting foundA...");
 	System.out.println("9 in L? -> " + foundA(9,L) );
 	System.out.println("13 in L? -> " + foundA(13,L) );
-/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
+
 	System.out.println("\nTesting foundB...");
 	System.out.println("9 in L? -> " + foundB(9,L) );
 	System.out.println("13 in L? -> " + foundB(13,L) );
-*/
+
 	System.out.println("\nTesting oddsA...");
 	List<Integer> A = oddsA(L);
 	for( int n : A ) System.out.println(n);
-	/*
 	System.out.println("\nTesting oddsB...");
 	List<Integer> B = oddsB(L);
 	for( int n : B ) System.out.println(n);
@@ -103,7 +117,6 @@ public class ItrWorkAL
 	System.out.println("\nTesting removeEvens...");
 	removeEvens(L);
 	for( int n : L ) System.out.println(n);
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
     }//end main
 
