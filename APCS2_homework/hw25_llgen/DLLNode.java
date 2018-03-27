@@ -24,12 +24,12 @@ public class DLLNode<T>
     }
 
     //accessor for _nextNode
-    public DLLNode getNext() {
+    public DLLNode<T> getNext() {
 	return _nextNode;
     }
 
     //accessor for _prevNode
-    public DLLNode getPrev() {
+    public DLLNode<T> getPrev() {
 	return _prevNode;
     }
 
@@ -44,22 +44,22 @@ public class DLLNode<T>
     }
 
     //mutator for _nextNode
-    public DLLNode setNext( DLLNode newNext ) {
-	DLLNode foo = getNext();
+    public DLLNode<T> setNext( DLLNode newNext ) {
+	DLLNode<T> foo = getNext();
 	_nextNode = newNext;
 	return foo;
     }
 
     //mutator for _prevNode
-    public DLLNode setPrev( DLLNode newPrev) {
-	DLLNode foo = getPrev();
+    public DLLNode<T> setPrev( DLLNode newPrev) {
+	DLLNode<T> foo = getPrev();
 	_prevNode = newPrev;
 	return foo;
     }
     //--------------^  MUTATORS  ^--------------
 
     // override inherited toT
-    public T toString() {
+    public String toString() {
 	return _cargo.toString();
     }
     
