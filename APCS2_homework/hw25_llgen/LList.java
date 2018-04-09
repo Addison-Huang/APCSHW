@@ -1,7 +1,13 @@
+/*Addison Huang
+APCS2 pd2
+HW25 -- Generally Speaking...
+2018 03 27
+*/
+
 public class LList<T> implements List<T>{ 
 
     //instance vars
-    private DLLNode _head, _tail;
+    private DLLNode<T> _head, _tail;
     private int _size;
 
     // constructor -- initializes instance vars
@@ -27,14 +33,14 @@ public class LList<T> implements List<T>{
 	    throw new IndexOutOfBoundsException();
 	else if (index == _size) 
 	    addLast(newVal);
-	DLLNode newNode = new DLLNode(newVal, null, null);
+	DLLNode<T> newNode = new DLLNode<T>(newVal, null, null);
 	if (index == 0)
 	    addFirst(newVal);
 	else {
-	    DLLNode temp1 = _head;
+	    DLLNode<T> temp1 = _head;
 	    for (int i = 0; i < index - 1; i++)
 		temp1 = temp1.getNext();
-	    DLLNode temp2 = temp1.getNext();
+	    DLLNode<T> temp2 = temp1.getNext();
 	    newNode.setNext(temp2);
 	    newNode.setPrev(temp1);
 	    temp1.setNext(newNode);
@@ -53,7 +59,7 @@ public class LList<T> implements List<T>{
 	else if (index ==size()-1)
 	    return removeLast();
 	else {	
-	    DLLNode temp= _head;
+	    DLLNode<T> temp= _head;
 	    for (int i = 0; i < index-1; i++) {
 		temp = temp.getNext();
 	    }
@@ -71,7 +77,7 @@ public class LList<T> implements List<T>{
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 	T retVal;
-	DLLNode tmp = _head; //create alias to head
+	DLLNode<T> tmp = _head; //create alias to head
 	//walk to desired node
 	for( int i=0; i < index; i++ )
 	    tmp = tmp.getNext();
@@ -87,7 +93,7 @@ public class LList<T> implements List<T>{
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 
-	DLLNode tmp = _head; //create alias to head
+	DLLNode<T> tmp = _head; //create alias to head
 
 	//walk to desired node
 	for( int i=0; i < index; i++ )
@@ -112,7 +118,7 @@ public class LList<T> implements List<T>{
 
     //helper function to add a node to the front
     public void addFirst( T newVal) {
-	_head = new DLLNode(newVal, null, _head);
+	_head = new DLLNode<T>(newVal, null, _head);
 	if (_size == 0) {
 	    _tail = _head;
 	}
@@ -125,7 +131,7 @@ public class LList<T> implements List<T>{
 
     //helper function to add a node to the back
     public void addLast(T newVal) {
-	_tail = new DLLNode(newVal, _tail, null);
+	_tail = new DLLNode<T>(newVal, _tail, null);
 	if (_size == 0) {
 	    _head = _tail;
 	}
@@ -168,10 +174,10 @@ public class LList<T> implements List<T>{
 
 
     // override inherited toString
-    public T toString()
+    public String toString()
     {
 	String retStr = "HEAD->";
-	DLLNode tmp = _head; //init tr
+	DLLNode<T> tmp = _head; //init tr
 	while( tmp != null ) {
 	    retStr += tmp.getCargo() + "->";
 	    tmp = tmp.getNext();
