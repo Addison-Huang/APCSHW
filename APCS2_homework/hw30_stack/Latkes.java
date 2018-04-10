@@ -2,6 +2,10 @@
  * skeleton for class Latkes
  * Implements a stack of Strings using an encapsulated array
  *****************************************************/
+/*Addison Huang
+APCS2 Pd2
+HW #30 -- Stacks on Stacks on Stacks on Stacks...
+2018 04 10 */
 
 public class Latkes
 {
@@ -11,30 +15,48 @@ public class Latkes
   //constructor
   public Latkes( int size )
   {
+      _stack = new String[size];
+      _stackSize = 0;
 
   }
 
   //means of insertion
   public void push( String s )
   {
-
+      if (isFull()) {
+	  String[] temp = new String[_stack.length*2];
+	  for (int i = 0; i < _stack.length; i++) {
+	      temp[i] = _stack[i];
+	  }
+	  _stack = temp;
+      }
+      _stack[_stackSize] = s;
+      _stackSize++;
   }
 
   //means of removal
   public String pop( )
   {
-
+      String retStr = "";
+      if (isEmpty())
+	  return retStr; 
+      retStr = _stack[_stackSize-1];
+      _stack[_stackSize-1] = null;
+      _stackSize --;
+      return retStr;
   }
 
   //chk for emptiness
   public boolean isEmpty()
   {
+      return _stackSize == 0;
 
   }
 
   //chk for fullness
   public boolean isFull()
   {
+      return _stackSize >= _stack.length;
 
   }
 
@@ -42,7 +64,6 @@ public class Latkes
   //main method for testing
   public static void main( String[] args )
   {
-    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
       Latkes tastyStack = new Latkes(10);
 
       tastyStack.push("aoo");
@@ -85,7 +106,22 @@ public class Latkes
 
       //stack empty by now; SOP(null)
       System.out.println( tastyStack.pop() );
-      ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
+
+      Latkes pancakes = new Latkes(10);
+
+      pancakes.push("aoo");
+      pancakes.push("boo");
+      pancakes.push("coo");
+      pancakes.push("doo");
+      pancakes.push("eoo");
+      pancakes.push("foo");
+      pancakes.push("goo");
+      pancakes.push("hoo");
+      pancakes.push("ioo");
+      pancakes.push("joo");
+      pancakes.push("coocoo");
+      pancakes.push("cachoo");
+      pancakes.push("zoo");
 
   }//end main()
 
