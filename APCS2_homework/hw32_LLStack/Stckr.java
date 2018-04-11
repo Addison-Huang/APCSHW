@@ -7,8 +7,8 @@ public class Stckr
 {
 public static void main( String[] args )
 {
-    Stack cakes = new ALStack();
-//Stack cakes = new LLStack()...
+    //Stack cakes = new ALStack();
+    //Stack cakes = new LLStack()...
 
 }
 
