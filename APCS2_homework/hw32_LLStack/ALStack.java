@@ -5,7 +5,7 @@ public class ALStack<PANCAKE> implements Stack<PANCAKE>{
     private ArrayList<PANCAKE> stack;
 
     public ALStack() {
-	ArrayList stack = new ArrayList();
+	stack = new ArrayList<PANCAKE>();
     }
     
     public boolean isEmpty() {
@@ -21,7 +21,7 @@ public class ALStack<PANCAKE> implements Stack<PANCAKE>{
     }
 
     public void push(PANCAKE x) {
-	stack.add(0, x);
+	stack.add(0,x);
     }
 
     public static void main(String[] args) {
