@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+
+public class AlQueue<T> {
+
+    private ArrayList<T> _queue;
+    private int _size;
+    private int _front, _end;
+    
+    public ALQueue<T>() {
+	_queue = new ArrayList<T>();
+	_size = 0;
+	_front = _end = 0;
+
+    }
+    
+    public T dequeue() {
+	T temp = _queue.get[_front];
+	_front = _front + 1;
+	_size--;
+	return temp;
+    }
+
+    public void enqueue(T x) {
+	_queue.add(x);
+	_end += 1;
+	_size++;
+    }
+
+    public T peekfront() {
+	return _queue[_front];
+    }
+
+    public boolean isEmpty() {
+	return (_size == 0);
+
+	
+
+    
+    
+	
+    
