@@ -11,7 +11,7 @@ public class LLStack <PANCAKE> implements Stack <PANCAKE> {
     private LinkedList<PANCAKE> stack;
 
     public LLStack() {
-	stack = new LinkedList();
+	stack = new LinkedList<PANCAKE>();
     }
 
     public boolean isEmpty() {
@@ -19,15 +19,23 @@ public class LLStack <PANCAKE> implements Stack <PANCAKE> {
     }
 
     public PANCAKE peek() {
-	return stack.getFirst();
+	PANCAKE retVal = null;
+	if (isEmpty())
+	    return null;
+	retVal = stack.get(stack.size()-1);
+	return retVal;
     }
 
     public PANCAKE pop() {
-	return stack.removeFirst();
+        PANCAKE retVal = null;
+	if (isEmpty())
+	    return null;
+	retVal = stack.remove(stack.size()-1);
+	return retVal;
     }
 
     public void push (PANCAKE x) {
-	stack.addFirst(x);
+	stack.add(x);
     }
 
     public static void main(String[] args) {
